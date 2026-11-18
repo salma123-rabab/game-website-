@@ -1,0 +1,445 @@
+:root {
+    --neon-lime: #c8f904;
+    --neon-lime-hover: #b2df00;
+    --bg-dark: #0b0d12;
+    --card-dark: #161b24;
+    --card-border: #252c3a;
+    --text-gray: #9ca3af;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+/* Custom Colors & Buttons */
+.text-neon {
+    color: var(--neon-lime) !important;
+}
+
+.bg-neon {
+    background-color: var(--neon-lime) !important;
+}
+
+.text-light-gray {
+    color: var(--text-gray);
+}
+
+.btn-neon {
+    background-color: var(--neon-lime);
+    color: #0b0d12;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background-color: var(--neon-lime-hover);
+    color: #0b0d12;
+    transform: translateY(-2px);
+}
+
+.btn-outline-neon {
+    background-color: transparent;
+    color: var(--neon-lime);
+    border: 1.5px solid var(--neon-lime);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-neon:hover {
+    background-color: var(--neon-lime);
+    color: #0b0d12;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(11, 13, 18, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-link {
+    color: #e5e7eb !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--neon-lime) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 90vh;
+    background: url('images/hero-bg.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(11, 13, 18, 0.95) 45%, rgba(11, 13, 18, 0.75) 100%);
+}
+
+.neon-border {
+    border: 3px solid var(--neon-lime);
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    object-fit: contain;
+}
+
+.active-players-badge {
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    background-color: #161b24;
+    border: 1px solid #2a3241;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 3;
+}
+
+/* Section Tag with Lines */
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--neon-lime);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.section-tag::before,
+.section-tag::after {
+    content: "";
+    width: 35px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-lime));
+}
+
+.section-tag::after {
+    background: linear-gradient(90deg, var(--neon-lime), transparent);
+}
+
+/* Latest Games */
+.game-card {
+    height: 270px;
+    background-color: #161b24;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.game-card:hover,
+.game-card.active-game {
+    border-color: var(--neon-lime);
+    transform: translateY(-5px);
+}
+
+.game-img {
+    transition: transform 0.4s ease;
+}
+
+.game-card:hover .game-img {
+    transform: scale(1.05);
+}
+
+.game-content-overlay {
+    background: linear-gradient(to top, rgba(11, 13, 18, 0.9) 20%, transparent 80%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.badge-pill-dark {
+    background-color: rgba(11, 13, 18, 0.85);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 50px;
+    pointer-events: auto;
+}
+
+.btn-circle-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #374151;
+    color: #9ca3af;
+    transition: all 0.3s ease;
+}
+
+.btn-circle-arrow:hover {
+    border-color: var(--neon-lime);
+    color: var(--neon-lime);
+}
+
+/* What We Do Section - Hover Border & Arrows */
+.service-card {
+    height: 240px;
+    background-color: #161b24;
+    border: 1px solid #222733;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+}
+
+.service-card:hover,
+.service-card.active-service {
+    border-color: var(--neon-lime);
+    transform: translateY(-3px);
+}
+
+/* Arrows / Corners effect on hover and active */
+.corner-tl, .corner-br {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.corner-tl {
+    top: 10px;
+    left: 10px;
+    border-top: 14px solid var(--neon-lime);
+    border-right: 14px solid transparent;
+}
+
+.corner-br {
+    bottom: 10px;
+    right: 10px;
+    border-bottom: 14px solid var(--neon-lime);
+    border-left: 14px solid transparent;
+}
+
+.service-card:hover .corner-tl,
+.service-card:hover .corner-br,
+.service-card.active-service .corner-tl,
+.service-card.active-service .corner-br {
+    opacity: 1;
+}
+
+.service-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background-color: #1f2430;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Netflix Style Moving Logos Wall */
+.neon-divider {
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-lime), transparent);
+    box-shadow: 0 0 15px var(--neon-lime);
+}
+
+.logos-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 180px;
+    background: radial-gradient(ellipse at center, rgba(200, 249, 4, 0.35) 0%, transparent 70%);
+    filter: blur(25px);
+    z-index: 1;
+}
+
+.netflix-row-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+.netflix-track {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+}
+
+.scroll-left {
+    animation: marqueeLeft 35s linear infinite;
+}
+
+.scroll-right {
+    animation: marqueeRight 35s linear infinite;
+}
+
+.netflix-row-container:hover .netflix-track {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.team-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Our Team Section - Black & White (Grayscale) by default -> Colorful on Hover */
+.member-card {
+    height: 320px;
+    background-color: #161b24;
+    cursor: pointer;
+    border: 1px solid #222733;
+    transition: border-color 0.3s ease;
+}
+
+.member-card:hover {
+    border-color: var(--neon-lime);
+}
+
+.member-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%); /* أبيض وأسود افتراضياً */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.member-backdrop-blur {
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 13, 18, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+}
+
+.member-card:hover .member-backdrop-blur {
+    opacity: 1;
+}
+
+.member-card:hover .member-img {
+    filter: grayscale(0%); /* تلون عند الوقوف بالماوس */
+    transform: scale(1.08);
+}
+
+.member-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, transparent 100%);
+    z-index: 2;
+}
+
+.vertical-nickname {
+    writing-mode: vertical-rl;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #0e121a;
+}
+
+.contact-info-card,
+.contact-form-card {
+    background-color: #18202c;
+    border: 1px solid #263142;
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+}
+
+.community-card {
+    background: linear-gradient(135deg, #c8f904 0%, #22e559 100%);
+}
+
+.social-circle-dark {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #0b0d12;
+    color: var(--neon-lime);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-circle-dark:hover {
+    transform: translateY(-3px);
+    color: #ffffff;
+}
+
+.custom-input {
+    background-color: #2b3545;
+    border: 1px solid #3a4659;
+    color: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.custom-input::placeholder {
+    color: #9ca3af;
+}
+
+.custom-input:focus {
+    background-color: #2b3545;
+    border-color: var(--neon-lime);
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgba(200, 249, 4, 0.2);
+}
+
+/* Footer */
+.footer-section {
+    background-color: #07080b;
+    border-top: 1px solid #1a1f2b;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--neon-lime);
+}
